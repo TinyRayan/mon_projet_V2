@@ -73,14 +73,21 @@
     <main>
 
       <div class="container-fluid mt-5">
-      
-        <div class=" border border-primary m-2 mt-3 ">
+       
+        <div id="image_commande_horizontale">
+        <div id="libelle_description_commande_horizontale">
+          <div id="prix_commande_horizontale">
+          </div>
+        </div>
+        </div>
 
+        <!-- <div class=" m-2 mt-3 ">
+              
             <div class="container-fluid row d-flex justify-content-center m-0">
       
-              <div id="cardplat" class="card col-4 flex-row ms-lg-5 mt-4" style="width: 40rem;">
+              <div id="cardplat" class="card col-4 flex-row ms-lg-5 mt-4" style="width: 40rem;"> -->
       
-                <img src="Asset/img/ASIAN01.jpg" class=" rounded-3 mt-3 border border-muted" alt=""
+              <!--   <img src="Asset/img/ASIAN01.jpg" class=" rounded-3 mt-3 border border-muted" alt=""
                   style="width: 10rem;">
       
                 <div class="card-body">
@@ -91,7 +98,7 @@
                   <div id="OMBRE" class="d-flex justify-content-center">
                     <PRIX class="text-bg-danger rounded p-2 mt-3">PRIX : 17.50E</PRIX>
                   </div>
-                </div>
+                </div> -->
       
               </div>
       

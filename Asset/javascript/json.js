@@ -118,6 +118,69 @@ $(document).ready(function () {
 
 
 
+      // Fetch the JSON file
+fetch('Asset/javascript/the_district.json')
+
+.then(function(response) {
+return response.json();
+})
+
+.then(function(data) {
+// Get the id from the URL
+const urlParams = new URLSearchParams(window.location.search);
+const idFromUrl = urlParams.get('id');
+console.log(idFromUrl);
+
+// Filter the plates based on the id_categorie
+const filteredPlates = data.plat.filter(function(plate) {
+return plate.id_plat === parseInt(idFromUrl);
+});
+
+// Display the filtered plates in the div
+
+const div_1 = document.getElementById('image_commande_horizontale');
+div_1.innerHTML = '';
+
+const div_2 = document.getElementById('libelle_description_commande_horizontale');
+div_2.innerHTML = '';
+
+const div_3 = document.getElementById('prix_commande_horizontale');
+div_3.innerHTML = '';
+
+filteredPlates.forEach(function(plate) {
+
+const image_plat = document.createElement("img");
+image_plat.src = plate.image;
+image_plat.className = "card-img-top p-3 rounded-5";
+image_plat.style = "width: 25rem; height: auto;";
+
+const libelle_plat = document.createElement("h5");
+libelle_plat.textContent = plate.libelle;
+libelle_plat.className = "card-title fs-1 mb-2";
+
+const description_plat = document.createElement("p");
+description_plat.textContent = plate.description;
+description_plat.className = "card-text fst-italic fw-medium fs-5 mb-3";
+
+const prix_plat = document.createElement("p");
+prix_plat.textContent = plate.prix;
+prix_plat.className = "card-text fw-medium fs-5";
+
+div_1.appendChild(image_plat);
+
+div_2.appendChild(libelle_plat);
+div_2.appendChild(description_plat);
+
+div_3.appendChild(prix_plat);
+
+})
+
+.catch(function(error) {
+console.error(error);
+
+})});
+
+
 
 
 
@@ -159,6 +222,8 @@ $(document).ready(function () {
     })); */
 
 
+
+
 const searchInput = document.querySelector('#searchInput');
 
 console.log(searchInput);
@@ -176,56 +241,45 @@ searchInput.addEventListener('keyup', debounce(function(event) {
 
   }
 
+  /* SEARCH BAR */
+
 
   let Input = searchInput.value;
 
 
   $.get('Asset/javascript/the_district.json', function(data) {
-
     const plats = data.plat.filter(plat => plat.libelle.toLowerCase().includes(Input))
-
-    console.log(plats);
+     console.log(plats);
 
 
     const list = document.querySelector('#searchResults');
-
-    const listContainer = document.createElement('ul');
-    listContainer.className = ('p-0 m-0 border rounded-3 col-md-12')
-
-    listContainer.id = 'searchResultsList';
-
-    list.innerHTML = '';
+     const listContainer = document.createElement('ul');
+      listContainer.className = ('p-0 m-0 border rounded-3 col-md-12')
+       listContainer.id = 'searchResultsList';
+        list.innerHTML = '';
 
     plats.forEach(plat => {
-
-      const TitleList = document.createElement('li');    
-
-      const TitleListLink = document.createElement('a');
-
-      TitleListLink.href = 'index.html?id=' + plat.id_plat;
-
-      TitleListLink.text = plat.libelle;
-
-      TitleList.append(TitleListLink);
+       const TitleList = document.createElement('li');    
+        const TitleListLink = document.createElement('a');
+         TitleListLink.href = 'index.html?id=' + plat.id_plat;
+          TitleListLink.text = plat.libelle;
+           TitleList.append(TitleListLink);
 
 
       const ImgList = document.createElement('img');
-
-      ImgList.src = plat.image;
-
-      ImgList.className = 'img-fluid rounded';
-
-      ImgList.style = 'width : 5rem ; height : 3rem ; position : relative'
+       ImgList.src = plat.image;
+        ImgList.className = 'img-fluid rounded';
+         ImgList.style = 'width : 5rem ; height : 3rem ; position : relative'
 
       list.append(listContainer)
-      listContainer.append(ImgList , TitleListLink)
+       listContainer.append(ImgList , TitleListLink)
        
        
        
 
       })
       
-      list.append(listContainer);
+       list.append(listContainer);
 
   })
 

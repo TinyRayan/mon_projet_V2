@@ -72,6 +72,16 @@ $(document).ready(function () {
             $("#addresse_form").removeClass('invalid');
         }
             
+        const demande = $("#demande_form").val()
+
+        if (demande ===""){
+            envoi = false ; 
+            $("#demande_form").attr("placeholder" , "Tu es censé écrire quelque chose ici ... je dis sa comme ça ^^ " )
+            $("#demande_form").addClass('invalid');
+        } else {
+            $("#demande_form").removeclass('invalid');
+        }
+
 
         // Si tout est valide, soumettre le formulaire
    

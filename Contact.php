@@ -134,8 +134,8 @@
  
       <div class="container-fluid mt-5 d-flex justify-content-center ">
         <div class="col-10 col-md-8 col-lg-10">
-          <label for="address" class="form-label fs-5 fw-bold">Entrez votre addresse !</label>
-          <textarea class="form-control" id="addresse_form" cols="30" rows="5" name="address"></textarea>
+          <label for="demande" class="form-label fs-5 fw-bold">Entrez votre addresse !</label>
+          <textarea class="form-control" id="demande_form" cols="30" rows="5" name="demande"></textarea>
         </div>
       </div>
 
